@@ -18,7 +18,11 @@ $(document).ready(function () {
     var params = "client_secret=" + encodeURIComponent(uberClientSecret);
     params += "&client_id=" + encodeURIComponent(uberClientId);
     params += "&grant_type=" + encodeURIComponent("authorization_code");
-    params += "&redirect_uri=" + encodeURIComponent("http://localhost:8080");
+    //localhost
+    //params += "&redirect_uri=" + encodeURIComponent("http://localhost:8080");
+
+    //Publicly accessble url
+    params += "&redirect_uri=" + encodeURIComponent("https://purnisiddarth.github.io");
     params += "&code=" + encodeURIComponent(getParameterByName('code'));
 
     http.open("POST", url, true);
