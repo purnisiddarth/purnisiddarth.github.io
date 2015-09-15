@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>My First GitHub page</title>
-		<!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/css/main.css">
-	</head>
-	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		
-    		</ul>
-		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there</h1>
-				<p>This is my test page </p>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		
-	</body>
+    <head>
+        <title>Test page for Uber integration</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <section>
+            <h1>Ride with Uber</h1>
+            
+            <a href="#">
+                <div class="button">
+                    <p id="time">Request</p>
+                </div>
+
+                <input type="hidden" id="product_id" />
+            </a>
+        </section>
+        <script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/uber.js"></script>
+
+    </body>
 </html>
