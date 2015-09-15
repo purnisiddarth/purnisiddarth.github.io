@@ -1,6 +1,6 @@
 // Uber API Constants
 var uberClientId = "Mu5JacocLapQDpQiU_dlxKQ4RNq8tkmH"
-	, uberServerToken = "vpBESioeTMjcumSkyXhKr6L9rn36qP0pp8z2g9w8"
+	, uberServerToken = "Xd2FI4hCCCvGdh1U8VMRq3mKdIfQrdGiopXCBMa7"
     , uberClientSecret = "RkPo-Oxb-KDst3OKl99CrEuR-u2W0FUJlZV9dZ-D"
     , redirect_uri = "https://purnisiddarth.github.io"
     , accessToken
