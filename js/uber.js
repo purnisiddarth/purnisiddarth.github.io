@@ -1,16 +1,16 @@
 // Uber API Constants
-var uberClientId = "Mu5JacocLapQDpQiU_dlxKQ4RNq8tkmH"
-	, uberServerToken = "Xd2FI4hCCCvGdh1U8VMRq3mKdIfQrdGiopXCBMa7"
-    , uberClientSecret = "RkPo-Oxb-KDst3OKl99CrEuR-u2W0FUJlZV9dZ-D"
-    , redirect_uri = "https://purnisiddarth.github.io"
+var uberClientId = "YOUR_CLIENT_ID"
+	, uberServerToken = "YOUR_SERVER_TOKEN"
+    , uberClientSecret = "YOUR_CLIENT_SECRET"
+    , redirect_uri = "YOUR_REDIRECT_URI"
     , accessToken
     , timer;
 
 // Create variables to store latitude and longitude
-var startLatitude = 37.720180
-, startLongitude = -122.067335
-, endLatitude = 37.797986
-, endLongitude = -122.406301;
+var startLatitude = "YOUR_START_LATITUDE"
+, startLongitude = "YOUR_START_LONGITUDE"
+, endLatitude = "YOUR_END_LATITUDE"
+, endLongitude = "YOUR_END_LONGITUDE";
 
 // OAuth callback
 // Use the authorization code from the callback and call login token endpoint to get access token
@@ -23,10 +23,6 @@ $(document).ready(function () {
     var params = "client_secret=" + encodeURIComponent(uberClientSecret);
     params += "&client_id=" + encodeURIComponent(uberClientId);
     params += "&grant_type=" + encodeURIComponent("authorization_code");
-    //localhost
-    //params += "&redirect_uri=" + encodeURIComponent("http://localhost:8080");
-
-    //Publicly accessble url
     params += "&redirect_uri=" + encodeURIComponent(redirect_uri);
     params += "&code=" + encodeURIComponent(getParameterByName('code'));
 
