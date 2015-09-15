@@ -33,7 +33,6 @@ $(document).ready(function () {
     http.open("POST", url, true);
 
     //Send the proper header information along with the request
-    http.withCredentials = "true";
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.setRequestHeader("Accept", "application/json");
     
