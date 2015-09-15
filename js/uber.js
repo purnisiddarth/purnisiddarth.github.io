@@ -18,83 +18,50 @@ var startLatitude = 37.720180
 $(document).ready(function () {
     var authCode = getParameterByName('code');
     
-    //var http = new XMLHttpRequest();
-    //var url = "https://login.uber.com/oauth/token";
-    //var params = "client_secret=" + encodeURIComponent(uberClientSecret);
-    //params += "&client_id=" + encodeURIComponent(uberClientId);
-    //params += "&grant_type=" + encodeURIComponent("authorization_code");
-    ////localhost
-    ////params += "&redirect_uri=" + encodeURIComponent("http://localhost:8080");
+    var http = new XMLHttpRequest();
+    var url = "https://login.uber.com/oauth/token";
+    var params = "client_secret=" + encodeURIComponent(uberClientSecret);
+    params += "&client_id=" + encodeURIComponent(uberClientId);
+    params += "&grant_type=" + encodeURIComponent("authorization_code");
+    //localhost
+    //params += "&redirect_uri=" + encodeURIComponent("http://localhost:8080");
 
-    ////Publicly accessble url
-    //params += "&redirect_uri=" + encodeURIComponent(redirect_uri);
-    //params += "&code=" + encodeURIComponent(getParameterByName('code'));
+    //Publicly accessble url
+    params += "&redirect_uri=" + encodeURIComponent(redirect_uri);
+    params += "&code=" + encodeURIComponent(getParameterByName('code'));
 
-    //http.open("POST", url, true);
+    http.open("POST", url, true);
 
-    ////Send the proper header information along with the request
-    //http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    //http.setRequestHeader("Accept", "application/json");
-    //http.setRequestBody
+    //Send the proper header information along with the request
+    http.withCredential = "true";
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.setRequestHeader("Accept", "application/json");
     
-    //http.onreadystatechange = function (e) {//Call a function when the state changes.
-    //    console.log(http, e);
-    //    if (http.readyState == 4 && http.status == 200) {
-    //        //Use JSON parse and get accesstoken from the result
-    //        var obj = JSON.parse(http.responseText);
-    //        console.log(obj);
-    //        accessToken = obj.access_token;
-    //        if (typeof accessToken != typeof undefined)
-    //        {
-    //            //Get products using the accesstoken
-    //            getProducts(accessToken);
-    //        }
-    //        else {
-    //            console.log("Error: Access token is not defined.");
-    //        }
-
-    //    }
-    //    else {
-    //        console.log("Error getting access token.");
-    //    }
-    //};
-    //http.send(params);
+    http.setRequestBody
     
-    $.ajax({
-        type: "POST",
-        url: "https://login.uber.com/oauth/token",
-        headers: {
-            //Authorization: "Bearer " + accessToken
-            Accept: "application/json; charset=utf-8",
-            "Content-Type": "application/x-www-form-urlencoded; charset=utf-8"
-        },
-        //contentType: "application/json",
-        data: JSON.stringify({
-            client_secret: encodeURIComponent(uberClientSecret),
-            client_id: encodeURIComponent(uberClientId),
-            grant_type: "authorization_code",
-            redirect_uri: encodeURIComponent(redirect_uri),
-            code: encodeURIComponent(getParameterByName('code'))
-        }),
-        success: function (response) {
+    http.onreadystatechange = function (e) {//Call a function when the state changes.
+        console.log(http, e);
+        if (http.readyState == 4 && http.status == 200) {
             //Use JSON parse and get accesstoken from the result
-            var obj = JSON.parse(response);
+            var obj = JSON.parse(http.responseText);
             console.log(obj);
             accessToken = obj.access_token;
-
-            if (typeof accessToken != typeof undefined) {
+            if (typeof accessToken != typeof undefined)
+            {
                 //Get products using the accesstoken
                 getProducts(accessToken);
             }
             else {
                 console.log("Error: Access token is not defined.");
             }
-        },
-        error: function (error) {
-            // Log any error.
-            console.log("ERROR:", error);
+
         }
-    });
+        else {
+            console.log("Error getting access token.");
+        }
+    };
+    http.send(params);
+        
 });
 
 //Extract code from the querystring
