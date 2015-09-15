@@ -146,7 +146,6 @@ $("a").click(function (event) {
 // Poll sandbox for status of request
 function getStatusUpdate(request_id) {
     $.ajax({
-        type: "PUT",
         url: "https://sandbox-api.uber.com/v1/requests/" + request_id,
         headers: {
             Authorization: "Bearer " + accessToken
