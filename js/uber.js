@@ -152,6 +152,7 @@ function getStatusUpdate(request_id) {
         },
         contentType: "application/json",
         dataType: "text",
+        data: JSON.stringify({ "status": "accepted" }),
         success: function(result) {
             console.log(JSON.stringify(result));
             var obj = JSON.parse(result);
