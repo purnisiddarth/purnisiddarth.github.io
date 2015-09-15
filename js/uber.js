@@ -151,8 +151,7 @@ function getStatusUpdate(request_id) {
             Authorization: "Bearer " + accessToken
         },
         contentType: "application/json",
-        dataType: "text",
-        data: JSON.stringify({ "status": "accepted" }),
+        data: { "status": "accepted" },
         success: function(result) {
             console.log(JSON.stringify(result));
             var obj = JSON.parse(result);
