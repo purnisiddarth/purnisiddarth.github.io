@@ -1,4 +1,4 @@
-# purnisiddarth.github.io
+# Example application using Uber API
 Objective: 
 
 Build a chrome extension for yelp, using which one can request Uber. The extension pops open a uber button which gives a rough estimate of how long it would take for Uber to arrive at the user's location. Clicking the pop-up button allows user to login and grant access for the application and then proceed to display Uber product. User can then click the button and request a ride (sandbox request).
